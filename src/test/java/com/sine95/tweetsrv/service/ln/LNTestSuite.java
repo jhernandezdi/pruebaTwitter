@@ -1,0 +1,98 @@
+
+//package com.sine95.tweetsrv.service.ln;
+package com.sine95.tweetsrv.service.ln;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+import org.junit.runners.Suite.SuiteClasses;
+
+
+import com.sine95.tweetsrv.service.ln.Cache.Cache_getCacheAreaConfigurationLNServiceTest;
+import com.sine95.tweetsrv.service.ln.Cache.Cache_getCacheAreaSecurityLNServiceTest;
+import com.sine95.tweetsrv.service.ln.Cache.Cache_getCacheAreaUserFromIdLNServiceTest;
+import com.sine95.tweetsrv.service.ln.Cache.Cache_getCacheAreaUserFromLoginLNServiceTest;
+import com.sine95.tweetsrv.service.ln.Cache.Cache_getCacheAreaCachePruebaLNServiceTest;
+import com.sine95.tweetsrv.service.ln.Cache.Cache_resetAreaLNServiceTest;
+import com.sine95.tweetsrv.service.ln.Cache.Cache_getAreaLNServiceTest;
+import com.sine95.tweetsrv.service.ln.Cache.Cache_getAllAreaLNServiceTest;
+import com.sine95.tweetsrv.service.ln.ClienteTwitter.ClienteTwitter_InitCliLNServiceTest;
+import com.sine95.tweetsrv.service.ln.ClienteTwitter.ClienteTwitter_SendTwitLNServiceTest;
+import com.sine95.tweetsrv.service.ln.GenerateFromTemplate.GenerateFromTemplate_GenerateFromWithJSONLNServiceTest;
+import com.sine95.tweetsrv.service.ln.GenerateFromTemplate.GenerateFromTemplate_GenerateFromStringTemplateWithJSONLNServiceTest;
+import com.sine95.tweetsrv.service.ln.GenerateFromTemplate.GenerateFromTemplate_GenerateFromStringTemplateWithMapLNServiceTest;
+import com.sine95.tweetsrv.service.ln.GestionHilos.GestionHilos_addHilosLNServiceTest;
+import com.sine95.tweetsrv.service.ln.GestionHilos.GestionHilos_removeHilosLNServiceTest;
+import com.sine95.tweetsrv.service.ln.GestionHilos.GestionHilos_getListaTaskEjecutandoLNServiceTest;
+import com.sine95.tweetsrv.service.ln.GestionHilos.GestionHilos_getListaTaskEnColaLNServiceTest;
+import com.sine95.tweetsrv.service.ln.GestionHilos.GestionHilos_cancelaTareaLNServiceTest;
+import com.sine95.tweetsrv.service.ln.GestionHilos.GestionHilos_cambiaPosTareaLNServiceTest;
+import com.sine95.tweetsrv.service.ln.GestionHilos.GestionHilos_encolaTareaTestLNServiceTest;
+import com.sine95.tweetsrv.service.ln.GestionHilos.GestionHilos_getNumHilosLNServiceTest;
+import com.sine95.tweetsrv.service.ln.GestionHilos.GestionHilos_getInfoTasksLNServiceTest;
+import com.sine95.tweetsrv.service.ln.GestionHilos.GestionHilos_execTasksLNServiceTest;
+import com.sine95.tweetsrv.service.ln.GestionHilos.GestionHilos_activaTaskLNServiceTest;
+import com.sine95.tweetsrv.service.ln.GestionHilos.GestionHilos_desactivaTaskLNServiceTest;
+import com.sine95.tweetsrv.service.ln.PruebaLN.PruebaLN_SumaLNServiceTest;
+import com.sine95.tweetsrv.service.ln.PruebaLN.PruebaLN_MultiplicacionLNServiceTest;
+import com.sine95.tweetsrv.service.ln.SecurityLogin.SecurityLogin_loginLNServiceTest;
+import com.sine95.tweetsrv.service.ln.SecurityLogin.SecurityLogin_logoutLNServiceTest;
+import com.sine95.tweetsrv.service.ln.SecurityLogin.SecurityLogin_createUserLNServiceTest;
+import com.sine95.tweetsrv.service.ln.SecurityLogin.SecurityLogin_updateUserLNServiceTest;
+import com.sine95.tweetsrv.service.ln.SecurityLogin.SecurityLogin_deleteUserLNServiceTest;
+import com.sine95.tweetsrv.service.ln.SecurityLogin.SecurityLogin_changePassLNServiceTest;
+import com.sine95.tweetsrv.service.ln.SecurityLogin.SecurityLogin_getInfoUserLNServiceTest;
+import com.sine95.tweetsrv.service.ln.SecurityLogin.SecurityLogin_setInfoUserLNServiceTest;
+import com.sine95.tweetsrv.service.ln.SecurityLogin.SecurityLogin_resetPassLNServiceTest;
+import com.sine95.tweetsrv.service.ln.GestionTweets.GestionTweets_ValidarTweetLNServiceTest;
+import com.sine95.tweetsrv.service.ln.GestionTweets.GestionTweets_TweetsValidosLNServiceTest;
+import com.sine95.tweetsrv.service.ln.GestionTweets.GestionTweets_TweetsLNServiceTest;
+import com.sine95.tweetsrv.service.ln.GestionTweets.GestionTweets_HashtagsMasUsadosLNServiceTest;
+
+@RunWith(Suite.class)
+@SuiteClasses({
+
+	Cache_getCacheAreaConfigurationLNServiceTest.class,
+	Cache_getCacheAreaSecurityLNServiceTest.class,
+	Cache_getCacheAreaUserFromIdLNServiceTest.class,
+	Cache_getCacheAreaUserFromLoginLNServiceTest.class,
+	Cache_getCacheAreaCachePruebaLNServiceTest.class,
+	Cache_resetAreaLNServiceTest.class,
+	Cache_getAreaLNServiceTest.class,
+	Cache_getAllAreaLNServiceTest.class,
+	ClienteTwitter_InitCliLNServiceTest.class,
+	ClienteTwitter_SendTwitLNServiceTest.class,
+	GenerateFromTemplate_GenerateFromWithJSONLNServiceTest.class,
+	GenerateFromTemplate_GenerateFromStringTemplateWithJSONLNServiceTest.class,
+	GenerateFromTemplate_GenerateFromStringTemplateWithMapLNServiceTest.class,
+	GestionHilos_addHilosLNServiceTest.class,
+	GestionHilos_removeHilosLNServiceTest.class,
+	GestionHilos_getListaTaskEjecutandoLNServiceTest.class,
+	GestionHilos_getListaTaskEnColaLNServiceTest.class,
+	GestionHilos_cancelaTareaLNServiceTest.class,
+	GestionHilos_cambiaPosTareaLNServiceTest.class,
+	GestionHilos_encolaTareaTestLNServiceTest.class,
+	GestionHilos_getNumHilosLNServiceTest.class,
+	GestionHilos_getInfoTasksLNServiceTest.class,
+	GestionHilos_execTasksLNServiceTest.class,
+	GestionHilos_activaTaskLNServiceTest.class,
+	GestionHilos_desactivaTaskLNServiceTest.class,
+	PruebaLN_SumaLNServiceTest.class,
+	PruebaLN_MultiplicacionLNServiceTest.class,
+	SecurityLogin_loginLNServiceTest.class,
+	SecurityLogin_logoutLNServiceTest.class,
+	SecurityLogin_createUserLNServiceTest.class,
+	SecurityLogin_updateUserLNServiceTest.class,
+	SecurityLogin_deleteUserLNServiceTest.class,
+	SecurityLogin_changePassLNServiceTest.class,
+	SecurityLogin_getInfoUserLNServiceTest.class,
+	SecurityLogin_setInfoUserLNServiceTest.class,
+	SecurityLogin_resetPassLNServiceTest.class,
+	GestionTweets_ValidarTweetLNServiceTest.class,
+	GestionTweets_TweetsValidosLNServiceTest.class,
+	GestionTweets_TweetsLNServiceTest.class,
+	GestionTweets_HashtagsMasUsadosLNServiceTest.class
+})
+@SuppressWarnings("unused")
+public class LNTestSuite {
+
+}
+
