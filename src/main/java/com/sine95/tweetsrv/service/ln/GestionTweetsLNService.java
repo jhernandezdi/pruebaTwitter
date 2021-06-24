@@ -50,6 +50,8 @@ import java.util.stream.*;
 
 
 import com.sine95.tweetsrv.enums.SiNo;
+
+import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 
 
@@ -156,9 +158,8 @@ public class GestionTweetsLNService extends LNService
 				
 				Tweets tweet=tweetsFromTweetid;
 				tweet.setValidacion(SiNo.S);
-				tweetsService.update(tweet);
-
-				//insert_end)
+				Result<Tweets> rTwts = tweetsService.update(tweet);
+				res.copyStatus(rTwts);
 				
 
 			}
@@ -231,15 +232,17 @@ public class GestionTweetsLNService extends LNService
 
 
 				
+				// Hacemos una búsqueda byExample en la BF
+				Tweets twt=new Tweets();
+				twt.setValidacion(SiNo.S);
+				Result<List<Tweets>> lTwts = tweetsService.findAll(Example.of(twt));
 				
-				Tweets example=new Tweets();
-				example.setValidacion(SiNo.S);
-				Result<List<Tweets>> listByExample = tweetsService.listByExample(example);
-				
-				res.setInfoEWI(listByExample);
-				if(listByExample.isOk())
+				if(lTwts.isOk())
 				{
-					res.setData(listByExample.getData());
+					res.setData(lTwts.getData());
+				}
+				else {
+					res.copyStatus(lTwts);
 				}
 				
 
@@ -313,11 +316,14 @@ public class GestionTweetsLNService extends LNService
 
 
 				
-				Result<List<Tweets>> findAll = tweetsService.findAll();
-				res.setInfoEWI(findAll);
-				if(findAll.isOk())
+				// Levantamos todos los Tweets de la BD
+				Result<List<Tweets>> lTwts = tweetsService.findAll();
+				if(lTwts.isOk())
 				{
-					res.setData(findAll.getData());
+					res.setData(lTwts.getData());
+				}
+				else {
+					res.copyStatus(lTwts);
 				}
 				
 
@@ -405,19 +411,27 @@ public class GestionTweetsLNService extends LNService
 
 
 				
-				Integer num=info.getMaxHashtags();
-				if(num==null)
-				{
-					num=config.getMaxNumHashTags();
+				// Obtenemos el número máximo de Hashtags a buscar del parámetro suministrado o de la configuración
+				Integer maxHsts=info.getMaxHashtags();
+
+				if(maxHsts == null) {
+					maxHsts=config.getMaxNumHashTags();
 				}
 				
-				HashtagsCritPaged pageable = new HashtagsCritPaged();
-				pageable.setSort(new String[] {"contador,desc"});
-				pageable.setPageSize(num);
-				pageable.setPaged(true);
-				Result<Page<Hashtags>> findAll = hashtagsService.findAll(pageable);
-				res.setInfoEWI(findAll); 
-				res.setData(findAll.getData().getContent());
+				// Utilizamos una búsqueda con paginación para obtener el número que queremos
+				HashtagsCritPaged lPaged = new HashtagsCritPaged();
+
+				lPaged.setPaged(true);
+				lPaged.setSort(new String[] { "contador,desc" });
+
+				lPaged.setPageSize(maxHsts);
+				Result<Page<Hashtags>> lHsts = hashtagsService.findAll(lPaged);
+				
+				if (lHsts.isOk()) {
+					res.setData(lHsts.getData().getContent());
+				} else {
+					res.copyStatus(lHsts); 
+				}
 				
 
 			}
